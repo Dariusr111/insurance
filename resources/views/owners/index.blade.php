@@ -7,8 +7,11 @@
     <table class="table">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Vardas</th>
             <th>Pavardė</th>
+            <th>Markė</th>
+            <th>Modelis</th>
             <th></th>
             <th></th>
         </tr>
@@ -16,8 +19,18 @@
         <tbody>
         @foreach($owners as $owner)
             <tr>
+                <td>{{ $owner->id }}</td>
                 <td>{{ $owner->name }}</td>
                 <td>{{ $owner->surname }}</td>
+                <td>
+                    @foreach($owner->car as $car)
+                        {{ $car->brand }}  <br>@endforeach
+                </td>
+                <td>
+                    @foreach($owner->car as $car)
+                        {{ $car->model }}  <br>@endforeach
+                </td>
+
                 <td><a class="btn btn-success float-end" href="{{ route('owners.edit', $owner->id) }}">Koreguoti</a> </td>
                 <td style="width:  10%">
                     <form action="{{ route('owners.destroy', $owner->id) }}" method="post">

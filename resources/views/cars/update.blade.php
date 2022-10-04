@@ -17,10 +17,23 @@
             <label class="form-label">Modelis:</label>
             <input class="form-control" type="text" name="model"  value="{{ $car->model }}">
         </div>
+
+{{--        <div  class="mb-3">--}}
+{{--            <label class="form-label">Savininko ID:</label>--}}
+{{--            <input class="form-control" type="text" name="owner_id"  value="{{ $car->owner_id }}">--}}
+{{--        </div>--}}
+
         <div  class="mb-3">
-            <label class="form-label">Savininko ID:</label>
-            <input class="form-control" type="text" name="owner_id"  value="{{ $car->owner_id }}">
+            <label class="form-label">Sąvininkas:</label>
+            <select name="owner_id" class="form-control" required>
+                <option value="" disabled selected>Pasirinkite</option>
+                @foreach($owners as $owner)
+                <option @if($owner->id==$car->owner_id) selected @endif value="{{ $owner->id }}">{{ $owner->name }} {{ $owner->surname }}</option>
+                @endforeach
+            </select>
         </div>
+
+
         <button class="btn btn-primary">Atnaujinti</button>
     </form>
 @endsection

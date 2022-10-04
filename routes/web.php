@@ -19,20 +19,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('auth')->group(function () {
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+
+    Route::resource('cars', CarController::class);
+    Route::get('/automodeliai', [CarController::class, 'rodykModelius'])->name('automodeliai');
+    Route::resource('owners', OwnerController::class);
+    Route::get('/savininkai', [CarController::class, 'rodykSavininkus'])->name('savininkai');
+
 });
 
 
-Route::resource('cars', CarController::class);
-Route::get('/automodeliai', [CarController::class, 'rodykModelius' ])->name('automodeliai');
-Route::resource('owners', OwnerController::class);
-Route::get('/savininkai', [CarController::class, 'rodykSavininkus' ])->name('savininkai');
 
 
 
 
 
+Auth::routes();
 
-
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

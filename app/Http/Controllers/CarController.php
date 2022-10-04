@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Owner;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -25,7 +26,8 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('cars.create');
+        $owners=Owner::all();
+        return view('cars.create', ['owners'=>$owners]);
     }
 
     /**
@@ -64,11 +66,12 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        return view('cars.update', ['car'=>$car]);
+        $owners=Owner::all();
+        return view('cars.update', ['car'=>$car, 'owners'=>$owners]);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in st.orage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Car  $car

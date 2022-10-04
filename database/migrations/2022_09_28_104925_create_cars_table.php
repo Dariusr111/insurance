@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('brand', 64);
             $table->string('model', 64);
-            $table->unsignedBigInteger('owner_id');
+            $table->unsignedBigInteger('owner_id')->nullable()->default(null);
             $table->timestamps();
         });
     }
