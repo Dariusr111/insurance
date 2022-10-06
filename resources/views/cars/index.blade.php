@@ -1,11 +1,12 @@
 
-
+{{--php artisan--}}
+{{--npm run dev--}}
 {{--http://localhost/insurance/public/cars--}}
 {{--http://localhost/insurance/public/owners--}}
 {{--http://localhost/insurance/public/login--}}
 {{--darius.r111@gmail.com darius1234--}}
 
-{{-- 1. Padarykite galimybę redaguoti savininkus ir automobilius Pridedant/redaguojant automobilį savininkas turi būti pasirinkimo laukas (select'as)--}}
+{{-- +1. Padarykite galimybę redaguoti savininkus ir automobilius Pridedant/redaguojant automobilį savininkas turi būti pasirinkimo laukas (select'as)--}}
 {{-- +2. Savininko redagavimo/peržiūros puslapyje turi būti surašyti visi jo turimi automobiliai--}}
 {{-- +3. Automobilio puslapyje turi būti pateikta ir informacija apie savininką--}}
 {{-- +4. Padaryti jog peržiūrėti ir redaguoti duomenis gali tik registruoti vartotojai.--}}

@@ -10,6 +10,7 @@
             <th>ID</th>
             <th>Vardas</th>
             <th>Pavardė</th>
+            <th>El.paštas</th>
             <th>Markė</th>
             <th>Modelis</th>
             <th></th>
@@ -22,6 +23,7 @@
                 <td>{{ $owner->id }}</td>
                 <td>{{ $owner->name }}</td>
                 <td>{{ $owner->surname }}</td>
+                <td>{{ $owner->email }}</td>
                 <td>
                     @foreach($owner->car as $car)
                         {{ $car->brand }}  <br>@endforeach

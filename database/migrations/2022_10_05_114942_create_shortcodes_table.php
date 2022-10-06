@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cars', function (Blueprint $table) {
+        Schema::create('shortcodes', function (Blueprint $table) {
             $table->id();
-            $table->string('reg_no', 64)->nullable()->default(null);
-            $table->string('brand', 64);
-            $table->string('model', 64);
-            $table->unsignedBigInteger('owner_id')->nullable()->default(null);
-            $table->timestamps();
+            $table->string('shortcode', 32);
+            $table->text('replace');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cars');
+        Schema::dropIfExists('shortcodes');
     }
 };

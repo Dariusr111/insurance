@@ -1,6 +1,13 @@
 @extends('layouts.main')
 @section('content')
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                {{ $error }}
+            @endforeach
+        </div>
+    @endif
 
 <form action="{{ route('cars.store') }}" method="post">
     @csrf

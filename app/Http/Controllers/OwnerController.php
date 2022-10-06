@@ -38,9 +38,15 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=>['required','min:3','max:16'],
+            'surname'=>['required','min:3','max:16'],
+            'email'=>['required','email','min:3','max:16','unique:App\Models\Owner,email']
+        ]);
         $owner=new Owner();
         $owner->name=$request->name;
         $owner->surname=$request->surname;
+        $owner->email=$request->email;
         $owner->save();
         return redirect()->route('owners.index');
     }
@@ -78,6 +84,7 @@ class OwnerController extends Controller
     {
         $owner->name=$request->name;
         $owner->surname=$request->surname;
+        $owner->email=$request->email;
         $owner->save();
         return redirect()->route('owners.index');
     }
