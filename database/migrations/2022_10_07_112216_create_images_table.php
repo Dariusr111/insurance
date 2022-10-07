@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('roles')->nullable()->default(null);
+        Schema::create('images', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('car_id');
+            $table->string('image')->nullable()->default(null);
+            $table->timestamps();
         });
-
     }
 
     /**
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('images');
     }
 };

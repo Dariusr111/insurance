@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\CarController;
+use App\Http\Controllers\CarController;;
 use App\Models\Car;
 use App\Http\Controllers\OwnerController;
 use App\Models\Owner;
-
+use App\Http\Controllers\ImageController;
+use App\Models\Image;
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +21,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/', function () {
         return view('welcome');
     });
 
+    Route::get('/image/{name}',[CarController::class, 'display'])
+        ->name('image.cars');
+    Route::resource('images', ImageController::class);
 
+    Route::get('cars', [CarController::class, 'index'])
+        ->name('cars.index');
     Route::resource('cars', CarController::class);
-    Route::get('/automodeliai', [CarController::class, 'rodykModelius'])->name('automodeliai');
+
+//    Route::get('/automodeliai', [CarController::class, 'rodykModelius'])->name('automodeliai');
+
+
+
+
+    Route::get('/savininkai', [CarController::class, 'rodykSavininkus'])
+        ->name('savininkai');
     Route::resource('owners', OwnerController::class);
-    Route::get('/savininkai', [CarController::class, 'rodykSavininkus'])->name('savininkai');
+
+
+
+
+
+
+
 
 });
 

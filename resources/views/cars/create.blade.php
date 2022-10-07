@@ -37,7 +37,10 @@
                @endforeach
            </select>
     </div>
-
+    <div class="mb-3">
+        <label class="form-label">Automobilio nuotrauka:</label>
+        <input type="file" class="form-control" name="image">
+    </div>
 
     <button class="btn btn-primary">Pridėti</button>
 </form>

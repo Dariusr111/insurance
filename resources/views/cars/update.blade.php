@@ -2,7 +2,7 @@
 @extends('layouts.main')
 @section('content')
 
-    <form action="{{ route('cars.update', $car->id) }}" method="post">
+    <form action="{{ route('cars.update', $car->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -32,7 +32,10 @@
                 @endforeach
             </select>
         </div>
-
+        <div class="mb-3">
+            <label class="form-label">Automobilio nuotrauka:</label>
+            <input type="file" class="form-control" name="image">
+        </div>
 
         <button class="btn btn-primary">Atnaujinti</button>
     </form>

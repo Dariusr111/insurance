@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('roles')->nullable()->default(null);
+        Schema::table('images', function (Blueprint $table){
+            $table->foreign ('car_id')->references('id')->on('cars');
         });
-
     }
 
     /**

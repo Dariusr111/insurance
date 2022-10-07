@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Owner;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -15,8 +16,10 @@ class CarController extends Controller
      */
     public function index()
     {
+        $images=Image::all();
+        $owners=Owner::all();
         $cars= Car::all();
-        return view("cars.index",['cars'=>$cars]);
+        return view("cars.index",['cars'=>$cars, 'owners'=>$owners, 'images'=>$images]);
     }
 
     /**
@@ -26,8 +29,12 @@ class CarController extends Controller
      */
     public function create()
     {
+
+
+        $image=Image::all();
+        $car=Car::all();
         $owners=Owner::all();
-        return view('cars.create', ['owners'=>$owners]);
+        return view('cars.create', ['car'=>$car,'owners'=>$owners, 'images'=>$image]);
     }
 
     /**
@@ -49,7 +56,17 @@ class CarController extends Controller
         $car->model=$request->model;
         $car->owner_id=$request->owner_id;
         $car->save();
+        $insertedId=$car->id;
+        $image= new Image();
+
+        $img=$request->file('image');
+        $filname=$car->id.'.'.$img->extension();
+        $image->image=$filname;
+        $image->car_id=$insertedId;
+        $img->storeAs('cars',$filname);
+        $image->save();
         return redirect()->route('cars.index');
+
     }
 
     /**
@@ -60,7 +77,9 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        echo "rodyti viena";
+        $images=Image::all();
+        $owners=Owner::all();
+        return view('cars.show', ['car'=>$car, 'owners'=>$owners, 'images'=>$images]);
     }
 
     /**
@@ -71,8 +90,9 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
+        $images=Image::all();
         $owners=Owner::all();
-        return view('cars.update', ['car'=>$car, 'owners'=>$owners]);
+        return view('cars.update', ['car'=>$car, 'owners'=>$owners, 'images'=>$images]);
     }
 
     /**
@@ -84,12 +104,14 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        $car->reg_no=$request->reg_no;
-        $car->brand=$request->brand;
-        $car->model=$request->model;
-        $car->owner_id=$request->owner_id;
+        $car->reg_no = $request->reg_no;
+        $car->brand = $request->brand;
+        $car->model = $request->model;
+        $car->owner_id = $request->owner_id;
+
         $car->save();
         return redirect()->route('cars.index');
+
     }
 
     /**
@@ -105,12 +127,10 @@ class CarController extends Controller
     }
 
 
-
-//    public function rodykModelius() {
-//        $cars= Car::all();
-//        return view("cars",['cars'=>$cars]);
-//    }
-
+    public function display($name,Request $request){
+        $file=storage_path('app/cars/'.$name);
+        return response()->file( $file );
+    }
 
 
 
