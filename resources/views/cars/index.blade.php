@@ -36,7 +36,7 @@
         <td>
             @foreach($images as $image)
                 @if ($image->car_id == $car->id)
-                    <img src="{{ route('image.cars',$image->img) }}" style=" width: 150px; height: 150px;">
+                    <img src="{{ route('image.cars',$image->image) }}" style=" width: 150px; height: 150px;">
                     @break
                 @endif
             @endforeach

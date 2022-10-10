@@ -29,22 +29,26 @@ Route::middleware('auth')->group(function () {
         return view('welcome');
     });
 
+    Route::get('cars', [CarController::class, 'index'])
+        ->name('cars.index');
+    Route::resource('cars', CarController::class);
+
     Route::get('/image/{name}',[CarController::class, 'display'])
         ->name('image.cars');
     Route::resource('images', ImageController::class);
 
-    Route::get('cars', [CarController::class, 'index'])
-        ->name('cars.index');
-    Route::resource('cars', CarController::class);
+    Route::get('/savininkai', [CarController::class, 'rodykSavininkus'])
+        ->name('savininkai');
+    Route::resource('owners', OwnerController::class);
+
+
 
 //    Route::get('/automodeliai', [CarController::class, 'rodykModelius'])->name('automodeliai');
 
 
 
 
-    Route::get('/savininkai', [CarController::class, 'rodykSavininkus'])
-        ->name('savininkai');
-    Route::resource('owners', OwnerController::class);
+
 
 
 

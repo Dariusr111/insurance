@@ -29,8 +29,6 @@ class CarController extends Controller
      */
     public function create()
     {
-
-
         $image=Image::all();
         $car=Car::all();
         $owners=Owner::all();
@@ -63,7 +61,7 @@ class CarController extends Controller
         $filname=$car->id.'.'.$img->extension();
         $image->image=$filname;
         $image->car_id=$insertedId;
-        $img->storeAs('cars',$filname);
+        $image->storeAs('cars',$filname);
         $image->save();
         return redirect()->route('cars.index');
 
@@ -126,13 +124,9 @@ class CarController extends Controller
         return redirect()->route('cars.index');
     }
 
-
     public function display($name,Request $request){
         $file=storage_path('app/cars/'.$name);
         return response()->file( $file );
     }
-
-
-
 
 }
