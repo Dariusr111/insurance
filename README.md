@@ -1,10 +1,10 @@
 Project created with PHP, Laravel, MySql
-![image](https://user-images.githubusercontent.com/106965568/193469223-57dbd30c-5f71-4d1a-83c0-8bc1aa85d88a.png)
-![image](https://user-images.githubusercontent.com/106965568/193469253-8ec73feb-6d4b-45a3-9e99-59b5ce83113f.png)
-![image](https://user-images.githubusercontent.com/106965568/193469284-ec1ab2c4-be3a-4c9b-8b92-b4172c1b77d3.png)
-![image](https://user-images.githubusercontent.com/106965568/193469321-8b73ba02-dab0-45da-ae9b-d16b2674d904.png)
-![image](https://user-images.githubusercontent.com/106965568/193469342-b4793c96-4487-48ac-8917-c414951ec489.png)
-![image](https://user-images.githubusercontent.com/106965568/193469355-8ae3bc97-4aa0-4466-9ebf-7e47723f58ca.png)
+![image](https://user-images.githubusercontent.com/106965568/194842655-4432f304-d9ca-4099-a4b3-417bc1f301aa.png)
+![screencapture-localhost-insurance-public-cars-2022-10-10-13_07_06](https://user-images.githubusercontent.com/106965568/194842753-18e0e11d-f69d-4a57-b389-fae5b4231099.png)
+![image](https://user-images.githubusercontent.com/106965568/194842944-767214f2-5559-411c-b333-f91a298d9d3c.png)
+![image](https://user-images.githubusercontent.com/106965568/194843043-8e7a5059-c6f8-48b2-88af-84edef7dbe63.png)
+![image](https://user-images.githubusercontent.com/106965568/194843169-34f03de6-391d-4f70-90c7-4600dde7444e.png)
+
 
 
 
